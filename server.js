@@ -18,6 +18,7 @@ app.use(require('./config/checkToken'))
 
 // Routes
 app.use('/api/users', require('./routes/api/users')) //this is the prefix we use for routes
+app.use('/api/notes', require('./routes/api/notes'))
 
 // Catch all route
 app.get('/*', function(req, rest) {
