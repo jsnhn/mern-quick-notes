@@ -4,7 +4,7 @@ import './App.css';
 // import NewOrderPage from "../NewOrderPage/NewOrderPage";
 import AuthPage from "../AuthPage/AuthPage";
 // import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
-import NotesPage from '../../components/NewNoteForm/NewNoteForm'
+import NotesPage from '../../pages//NotesPage/NotesPage'
 import NavBar from "../../components/NavBar/NavBar";
 import { getUser } from '../../utilities/users-service';
 
@@ -18,7 +18,7 @@ export default function App() {
     user ?
     <>
     <NavBar user={user} setUser={setUser} />
-    <NewNoteForm user={user} />
+    <NotesPage user={user} />
     </>
     :
     <AuthPage setUser={setUser}/>
