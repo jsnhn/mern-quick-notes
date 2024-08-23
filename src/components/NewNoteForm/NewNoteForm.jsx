@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createNote } from '../../utilities/notes-api'
 
-export default function NewNoteForm({ setNotes, notes }) {
+export default function NewNoteForm({ setNotes }) {
     const [newNote, setNewNote] = useState('');
     
 
@@ -11,17 +11,9 @@ export default function NewNoteForm({ setNotes, notes }) {
 
     const handleAddNote = async (evt) => {
         evt.preventDefault();
-        try {
-            const userNotes = await createNote({text: newNote})
-            setNotes(userNotes)
-            setNewNote(''); 
-
-        } catch {
-            setNotes({
-                ...notes,
-                error: 'Submission failed - Try again'
-            })
-        }
+        const userNotes = await createNote({text: newNote})
+        setNotes(userNotes)
+        setNewNote(''); 
     }
 
     return (

@@ -14,3 +14,7 @@ export async function createNote(newNote) {
     //     throw new Error('Invalid Sign Up') // Error is a class
     // }
 }
+
+export async function deleteNote(noteId) {
+    return sendRequest (`${BASE_URL}/${noteId}`, 'DELETE')
+}
