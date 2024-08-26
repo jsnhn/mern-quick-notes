@@ -18,3 +18,7 @@ export async function createNote(newNote) {
 export async function deleteNote(noteId) {
     return sendRequest (`${BASE_URL}/${noteId}`, 'DELETE')
 }
+
+export function getAll() {
+    return sendRequest(BASE_URL)
+}

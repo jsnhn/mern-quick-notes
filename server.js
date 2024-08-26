@@ -18,10 +18,12 @@ app.use(require('./config/checkToken'))
 
 // Routes
 app.use('/api/users', require('./routes/api/users')) //this is the prefix we use for routes
-app.use('/api/notes', require('./routes/api/notes'))
+
+const ensureLoggedIn = require('./config/ensureLoggedIn')
+app.use('/api/notes', ensureLoggedIn, require('./routes/api/notes'))
 
 // Catch all route
-app.get('/*', function(req, rest) {
+app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 }) // this will take any endpoint, then hit this get request. // this will have react to show the proper endpoint. for people who access the site. 
 
